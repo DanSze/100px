@@ -14,10 +14,11 @@ export class PxService {
         });
     }
 
-    getImages(feature: string, rpp: number): Promise<any[]> {
+    getImages(feature: string, rpp: number, imageSizes: number[]): Promise<any[]> {
         return this.get('/photos', {
             feature: feature,
-            rpp: rpp
+            rpp: rpp,
+            image_size: imageSizes
         }).then(data => {
             return data.photos;
         });

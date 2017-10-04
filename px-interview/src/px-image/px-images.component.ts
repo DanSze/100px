@@ -7,11 +7,27 @@ import { PxService } from './px.service';
   styleUrls: ['./px-images.component.css']
 })
 export class PxImagesComponent implements OnInit {
-    images: any[];
+    imageCols: any[][] = [[],[],[]];
 
     constructor(private px: PxService) {}
 
     ngOnInit(): void {
-        this.px.getImages('popular', 100).then(images => this.images = images);
+        this.px.getImages('popular', 100, [4]).then(imgs => {
+
+            let height = 0; //The total height of the images
+            for (let img of imgs) {
+                height += img.height;
+            }
+            
+            //Now that we have the total height, allocate them into three stacks of roughly equal height.
+            imgs.sort( (a, b) => a.height - b.height); //sorting them tallest first guarantees most even distribution.
+            let colIndex = 0;
+            for (let img of imgs) {
+                this.imageCols[colIndex].push(img);
+                colIndex = (colIndex + 1) % 3;
+            }
+        });
+
+
     }
 }
