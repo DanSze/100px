@@ -1,11 +1,17 @@
-<div>
-    <div>
-        {{image?.name}}
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
         <span class="pull-right">
-            <button *ngIf="!image?.voted" (click)="vote(1)" ><span class="glyphicon glyphicon-arrow-up"></span></button>
-            <button *ngIf="!image?.voted" (click)="vote(0)" ><span class="glyphicon glyphicon-arrow-down"></span></button>
-            <button *ngIf="image?.voted" (click)="unvote(1)" ><span class="glyphicon glyphicon-remove"></span></button>
+            <button type="button" class="btn btn-success" *ngIf="!image?.voted" (click)="vote(1)" >
+                <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+            <button type="button" class="btn btn-danger" *ngIf="!image?.voted" (click)="vote(0)" >
+                <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+            <button type="button" class="btn btn-primary" *ngIf="image?.voted" (click)="unvote(1)" ><span class="glyphicon glyphicon-remove"></span></button>
         </span>
+        <h4 >{{image?.name}}</h4>
     </div>
-    <img src="{{image?.images[0].url}}" class="img-responsive"/>
+    <div class="panel-body">
+        <img src="{{image?.images[0].url}}" class="img-responsive"/>
+    </div>
 </div>

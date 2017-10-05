@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { PxService } from './px.service';
 
 @Component({
@@ -8,19 +8,22 @@ import { PxService } from './px.service';
 })
 export class PxLoginComponent implements OnInit  {
 
-    constructor(private px: PxService) {}
-    text = 'Log In';
+    constructor(private px: PxService, private cdf: ChangeDetectorRef ) {}
+    text = undefined;
+    buttonText = 'Log In';
 
     ngOnInit() {
         this.px.onLogIn(() => {
             this.px.currentUser.then((user) => this.text = `Welcome, ${user.firstname?user.firstname:user.username}!`);
+            this.cdf.detectChanges();
         });
         this.px.onLogOut(() => {
-            this.text = 'Log In';
+            this.text = undefined;
+            this.cdf.detectChanges();
         });
     }
 
     logIn() {
-        this.px.conditionalLogIn();
+            this.px.conditionalLogIn();
     }
 }

@@ -1,6 +1,6 @@
-<div (click)="openModal()">
-    <div>
-        {{image.name}}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>{{image.name}}</h4>
     </div>
-    <img src="{{image.images[0].url}}" class="img-responsive"/>
+    <img src="{{image.images[0].url}}" class="img-responsive" (click)="openModal()"/>
 </div>

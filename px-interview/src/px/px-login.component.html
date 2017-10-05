@@ -1,1 +1,2 @@
-<button (click)="logIn()">{{text}}</button>
+<span class="navbar-text">{{text}}</span>
+<button *ngIf="!text" type="button" class="btn btn-default navbar-btn" (click)="logIn()">{{buttonText}}</button>

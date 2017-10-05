@@ -14,8 +14,8 @@ export class PxService {
             sdk_key: environment.pxKey
         });
         //make sure current user is always up to date, especially for other subscribers.
-        px.on('authorization_obtained', ()=> this.currentUser = this.getUser()); 
-        px.on('logout', ()=> this.currentUser = null);
+        this.onLogIn(()=> this.currentUser = this.getUser()); 
+        this.onLogOut(()=> this.currentUser = undefined);
         px.getAuthorizationStatus();
     }
 
@@ -66,6 +66,13 @@ export class PxService {
      */
     logIn(): void {
         px.login();
+    }
+
+    /**
+     * Log the user out. Sets current user to undefined.
+     */
+    logOut(): void {
+        px.logout();
     }
     
     onLogIn(callback: () => void) {
