@@ -7,5 +7,5 @@ import { PxImage } from './px-image';
   styleUrls: ['./px-image.component.css']
 })
 export class PxImageComponent {
-  @Input() image: PxImage;
+  @Input() image: any;
 }
