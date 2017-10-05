@@ -1,0 +1,11 @@
+<div>
+    <div>
+        {{image?.name}}
+        <span class="pull-right">
+            <button *ngIf="!image?.voted" (click)="vote(1)" ><span class="glyphicon glyphicon-arrow-up"></span></button>
+            <button *ngIf="!image?.voted" (click)="vote(0)" ><span class="glyphicon glyphicon-arrow-down"></span></button>
+            <button *ngIf="image?.voted" (click)="unvote(1)" ><span class="glyphicon glyphicon-remove"></span></button>
+        </span>
+    </div>
+    <img src="{{image?.images[0].url}}" class="img-responsive"/>
+</div>
