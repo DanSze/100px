@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { PxModule } from '../px-image/px.module';
+import { PxModule } from '../px/px.module';
 
 import { AppComponent } from './app.component';
 
