@@ -21,7 +21,7 @@ export class PxImageComponent {
       modal.content.image = this.modalImage;
       return;
     }
-    this.px.getPhoto(this.image.id, [6], 0)
+    this.px.getPhoto(this.image.id, [6], 1)
     .then( (photo) => {
       modal = this.modals.show(PxImageModalComponent);
       this.modalImage = photo;

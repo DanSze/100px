@@ -14,4 +14,7 @@
     <div class="panel-body">
         <img src="{{image?.images[0].url}}" class="img-responsive"/>
     </div>
+    <div class="panel-footer">
+        <span *ngFor="let tag of image?.tags"><span class="label label-default">{{tag}}</span> </span>
+    </div>
 </div>
