@@ -5,6 +5,8 @@
 The subfolder has the angular project, and can be run with
 
 ```
+cd px-interview
+npm install
 ng serve -o
 ```
 
@@ -12,7 +14,7 @@ The scaffolded readme is left intact to provide more detailed running structions
 
 ## Major Design Choices ##
 
-The first choice to make was the layout of the app, and that decision came quickly. A square grid looked too rigid, and a simple list like Instagram would result in a page that's far too long. That leaves either having the images in rows, like on the 500px site, or in columns. I chose the latter to make the app look at least a little different, and because at this stage I planned to have infinite scrolling. This is also where I decided to use modals instead of separate pages for each image, as this would make the entire app actually fit on one page, not counting the login popup.
+The first choice to make was the layout of the app, and that decision came quickly. A square grid looked too rigid, and a simple list like Instagram would result in a page that's far too long. That leaves either having the images in rows, like on the 500px site, or in columns. I chose the latter to make the app look at least a little different. This is also where I decided to use modals instead of separate pages for each image, as this would make the entire app actually fit on one page, not counting the login popup.
 
 Having decided on what I was making, it was time to figure out what to make it in. Seeing as there isn't really a backend portion to any of the tasks, it would be simplest to only make a front end, which left me with either pure jquery, Angular, or React. In the interest of time, I chose Angular.
 
